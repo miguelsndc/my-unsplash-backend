@@ -67,4 +67,17 @@ export class PostsService {
       deletedPost: deletePost,
     };
   }
+
+  static async findByLabel(query: string) {
+    const matchingPosts = await prisma.post.findMany({
+      where: {
+        label: {
+          contains: query,
+        },
+      },
+      take: 20,
+    });
+
+    return matchingPosts;
+  }
 }

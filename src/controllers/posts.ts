@@ -35,4 +35,12 @@ export class PostsController {
 
     return res.json(result);
   }
+
+  static async findByLabel(req: Request, res: Response) {
+    const label = String(req.query.q);
+
+    const result = await PostsService.findByLabel(label);
+
+    return res.json(result);
+  }
 }

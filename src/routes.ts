@@ -10,5 +10,6 @@ router.get('/users/:id/posts', restricted, PostsController.findPostsFromUser);
 router.post('/posts', restricted, PostsController.create);
 router.get('/posts', PostsController.findMany);
 router.delete('/posts/:id', restricted, PostsController.deleteOne);
+router.get('/posts/search', PostsController.findByLabel);
 
 export { router };
