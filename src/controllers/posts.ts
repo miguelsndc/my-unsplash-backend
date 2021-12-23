@@ -26,4 +26,13 @@ export class PostsController {
 
     res.json(result);
   }
+
+  static async deleteOne(req: Request, res: Response) {
+    const id = Number(req.params.id);
+    const userId = Number(req.user_id);
+
+    const result = await PostsService.delete(id, userId);
+
+    return res.json(result);
+  }
 }

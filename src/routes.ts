@@ -9,5 +9,6 @@ router.post('/users/authenticate', UserController.authenticate);
 router.get('/users/:id/posts', restricted, PostsController.findPostsFromUser);
 router.post('/posts', restricted, PostsController.create);
 router.get('/posts', PostsController.findMany);
+router.delete('/posts/:id', restricted, PostsController.deleteOne);
 
 export { router };

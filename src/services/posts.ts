@@ -19,8 +19,6 @@ export class PostsService {
       },
     });
 
-    console.log(newPost);
-
     return newPost;
   }
 
@@ -46,5 +44,27 @@ export class PostsService {
     });
 
     return posts;
+  }
+
+  static async delete(id: number, userId: number) {
+    const postToBeDeleted = await prisma.post.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    if (postToBeDeleted?.userId !== userId)
+      throw new Error('Users can only delete their own posts.');
+
+    const deletePost = await prisma.post.delete({
+      where: {
+        id: postToBeDeleted.id,
+      },
+    });
+
+    return {
+      message: 'Post deleted successfully',
+      deletedPost: deletePost,
+    };
   }
 }
