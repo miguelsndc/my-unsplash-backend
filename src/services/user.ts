@@ -78,4 +78,16 @@ export class UserService {
 
     return { token, user };
   }
+
+  static async findById(id: number) {
+    if (!id) throw new Error('Id is required to find the user.');
+
+    const user = await prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return user;
+  }
 }

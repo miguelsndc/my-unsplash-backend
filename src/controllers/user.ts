@@ -8,4 +8,12 @@ export class UserController {
     const result = await UserService.authenticateWithGithub(code);
     return res.json(result);
   }
+
+  static async findUserById(req: Request, res: Response) {
+    const userId = Number(req.user_id);
+
+    const result = await UserService.findById(userId);
+
+    return res.json(result);
+  }
 }
