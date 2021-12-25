@@ -38,10 +38,7 @@ export class PostsService {
     const amountOfRecords = 10;
     const recordsToSkip = (page = 1 ? 0 : page - 1 * amountOfRecords);
 
-    const posts = await prisma.post.findMany({
-      skip: recordsToSkip,
-      take: amountOfRecords,
-    });
+    const posts = await prisma.post.findMany();
 
     return posts;
   }
@@ -75,7 +72,6 @@ export class PostsService {
           contains: query,
         },
       },
-      take: 20,
     });
 
     return matchingPosts;
