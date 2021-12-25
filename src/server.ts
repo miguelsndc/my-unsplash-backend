@@ -5,6 +5,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import { config } from 'dotenv';
 import { router } from './routes';
+import { errorHandler } from './middlewares/error-handler';
 
 config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet());
 app.use(router);
+app.use(errorHandler);
 
 app.get('/', (_, res) => res.send('Running'));
 
