@@ -20,9 +20,7 @@ export class PostsController {
   }
 
   static async findMany(req: Request, res: Response) {
-    const page = Number(req.query.page);
-
-    const result = await PostsService.findMany(page);
+    const result = await PostsService.findMany();
 
     res.json(result);
   }

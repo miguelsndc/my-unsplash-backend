@@ -34,10 +34,7 @@ export class PostsService {
     return posts;
   }
 
-  static async findMany(page: number = 1) {
-    const amountOfRecords = 10;
-    const recordsToSkip = (page = 1 ? 0 : page - 1 * amountOfRecords);
-
+  static async findMany() {
     const posts = await prisma.post.findMany();
 
     return posts;
