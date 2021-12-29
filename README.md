@@ -87,4 +87,4 @@ $ npm run dev
 ## Contact
 
 - GitHub [@miguelsndc](https://github.com/miguelsndc})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+- LinkedIn [@Miguel Nogueira](https://www.linkedin.com/in/miguel--nogueira/)
